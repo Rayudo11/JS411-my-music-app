@@ -1,23 +1,27 @@
-import logo from './logo.svg';
+import  AppBar  from './component/AppBar';
+import Login from './component/Login';
 import './App.css';
+import { useEffect, useState } from 'react';
+import Dashboard from './component/Dashboard';
 
 function App() {
+
+ const [login, setLogin] = useState(false)
+
+ useEffect(()=>{
+   console.log(login)
+ })
+
+ 
+
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <AppBar/>
+    {/* {!login && <Login login={login} setLogin={setLogin} />}
+    {login && <Dashboard/>} */}
+    {login ? <Login login={login} setLogin={setLogin}/> : <Dashboard/>}
     </div>
   );
 }
